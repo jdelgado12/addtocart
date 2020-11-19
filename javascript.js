@@ -59,29 +59,34 @@ let insertPPrice = () => {
   document.getElementById("pPrice6").innerHTML = "$" + products[5].price;
 };
 
-document.getElementById("p1Button").addEventListener("click", function () {
+document.getElementById("p1Button").addEventListener("click", function (evt) {
   alert("Last Supper is added to cart.");
-  addToCart();
+  addToCart(evt.path[0].dataset.id);
 });
 
-document.getElementById("p2Button").addEventListener("click", function () {
+document.getElementById("p2Button").addEventListener("click", function (evt) {
   alert("Birth of Venus is added to cart.");
+  addToCart(evt.path[0].dataset.id);
 });
 
-document.getElementById("p3Button").addEventListener("click", function () {
+document.getElementById("p3Button").addEventListener("click", function (evt) {
   alert("Starry Night is added to cart.");
+  addToCart(evt.path[0].dataset.id);
 });
 
-document.getElementById("p4Button").addEventListener("click", function () {
+document.getElementById("p4Button").addEventListener("click", function (evt) {
   alert("Mona Lisa is added to cart.");
+  addToCart(evt.path[0].dataset.id);
 });
 
-document.getElementById("p5Button").addEventListener("click", function () {
+document.getElementById("p5Button").addEventListener("click", function (evt) {
   alert("Great Wave is added to cart.");
+  addToCart(evt.path[0].dataset.id);
 });
 
-document.getElementById("p6Button").addEventListener("click", function () {
+document.getElementById("p6Button").addEventListener("click", function (evt) {
   alert("Cubism is added to cart.");
+  addToCart(evt.path[0].dataset.id);
 });
 
 function isTrue() {
@@ -90,13 +95,14 @@ function isTrue() {
   }
 }
 
-function addToCart() {
+function addToCart(index) {
   var li = document.createElement("li");
-  li.appendChild(document.createTextNode(products[0].name + "  -----  "));
+  let i = index - 1;
+  li.appendChild(document.createTextNode(products[i].name + "  -----  "));
   li.appendChild(
-    document.createTextNode(products[0].description + "  -----  ")
+    document.createTextNode(products[i].description + "  -----  ")
   );
-  li.appendChild(document.createTextNode("$" + products[0].price));
+  li.appendChild(document.createTextNode("$" + products[i].price));
   ul.appendChild(li);
 }
 
